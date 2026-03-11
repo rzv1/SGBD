@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L01", "L01.csproj", "{066B3B70-D57D-43E1-A2C4-44B9EACC1542}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{066B3B70-D57D-43E1-A2C4-44B9EACC1542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{066B3B70-D57D-43E1-A2C4-44B9EACC1542}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{066B3B70-D57D-43E1-A2C4-44B9EACC1542}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{066B3B70-D57D-43E1-A2C4-44B9EACC1542}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

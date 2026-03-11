@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/Models/CustomerRepo.cs" value="c17dd976-3511-47ba-891e-27c70adf7b39" />
+    <file url="file://$PROJECT_DIR$/Models/PaymentRepo.cs" value="c17dd976-3511-47ba-891e-27c70adf7b39" />
+    <file url="file://$PROJECT_DIR$/schema.sql" value="c17dd976-3511-47ba-891e-27c70adf7b39" />
+  </component>
+</project>
