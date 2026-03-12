@@ -32,6 +32,8 @@ public partial class App : Application
             {
                 DataContext = new MainWindowViewModel(cRepo, pRepo),
             };
+            //Inchidem conextiunea cu baza de date la terminarea aplicatiei
+            manager.CloseConnection();
         }
 
         base.OnFrameworkInitializationCompleted();

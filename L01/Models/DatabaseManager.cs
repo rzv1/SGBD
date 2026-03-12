@@ -36,4 +36,9 @@ public class DatabaseManager(string connectionString)
             throw new Exception(e.Message);
         }
     }
+
+    public void CloseConnection()
+    {
+        _instance!.Close();
+    }
 }
