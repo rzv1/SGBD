@@ -1,4 +1,4 @@
-# Raport Tehnic - Aplicatie Management Plati
+# Raport Tehnic 
 
 ## 1. Decizii de design
 
@@ -12,7 +12,7 @@ In dezvoltarea aplicatiei s-a optat pentru o arhitectura de tip MVVM (Model-View
 ## 2. Provocari intampinate si solutii
 
 * **Diferente de sintaxa intre Java si C#:** O provocare initiala a fost adaptarea codului de conexiune JDBC la sistemul de Connection String din .NET. Solutia a constat in implementarea clasei DatabaseManager care gestioneaza pooling-ul de conexiuni prin Npgsql.
-* **Sincronizarea UI-ului:** Initial, campurile de input nu se resetau dupa adaugare, iar tabelul nu se actualiza la modificari. Solutia a fost implementarea interfetei `INotifyPropertyChanged` si utilizarea colectiilor de tip `ObservableCollection`, care notifica automat interfata la orice schimbare a datelor.
+* **Sincronizarea UI-ului:** Initial, campurile de input nu se resetau dupa adaugare, iar tabelul nu se actualiza la modificari. Solutia a fost utilizarea colectiilor de tip `ObservableCollection`, care notifica automat interfata la orice schimbare a datelor.
 * **Gestiunea valorilor NULL:** Postgres nu aplica valorile DEFAULT daca o coloana este trimisa ca NULL in INSERT. Am rezolvat aceasta problema prin utilizarea `DBNull.Value` in C# si a cuvantului cheie `DEFAULT` sau a clauzelor `CASE` in query-urile SQL.
 * **Configurarea mediului pe macOS:** Instalarea pachetelor NuGet corecte (compatibilitatea versiunilor de Avalonia) a necesitat atentie sporita la conflictele de versiuni "Preview" vs "Stable".
 
@@ -21,4 +21,3 @@ In dezvoltarea aplicatiei s-a optat pentru o arhitectura de tip MVVM (Model-View
 * **Ecosistemul .NET:** Am inteles cum functioneaza managerul de pachete NuGet si cum se configureaza un proiect multi-platforma folosind Avalonia UI.
 * **Diferente C# vs Java:** Am invatat ca in C# proprietatile (getters/setters) sunt mult mai concise si ca evenimentele de schimbare a proprietatilor sunt esentiale pentru aplicatiile desktop moderne.
 * **Lucrul cu baze de date:** Am aprofundat utilizarea ADO.NET si gestionarea conexiunilor intr-un mediu asincron, invatand importanta utilizarii blocurilor `using` pentru eliberarea resurselor.
-* **Arhitectura MVVM:** Am deprins abilitatea de a lega elementele vizuale de logica de programare fara a scrie cod direct in "code-behind", pastrand astfel un cod curat si usor de intretinut.

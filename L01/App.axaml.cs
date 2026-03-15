@@ -24,8 +24,8 @@ public partial class App : Application
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
             // More info: https://docs.avaloniaui.net/docs/guides/development-guides/data-validation#manage-validationplugins
             DisableAvaloniaDataAnnotationValidation();
-            string path = "Host=192.168.0.45;Port=5432;Database=gym;Username=postgres;Password=rzv";
-            DatabaseManager manager = new DatabaseManager(path);
+            string connectionString = "Host=192.168.2.45;Port=5432;Database=gym;Username=postgres;Password=rzv";
+            DatabaseManager manager = new DatabaseManager(connectionString);
             CustomerRepo cRepo = new CustomerRepo(manager);
             PaymentRepo pRepo = new PaymentRepo(manager);
             desktop.MainWindow = new MainWindow
@@ -33,7 +33,7 @@ public partial class App : Application
                 DataContext = new MainWindowViewModel(cRepo, pRepo),
             };
             //Inchidem conextiunea cu baza de date la terminarea aplicatiei
-            manager.CloseConnection();
+            //manager.CloseConnection();
         }
 
         base.OnFrameworkInitializationCompleted();

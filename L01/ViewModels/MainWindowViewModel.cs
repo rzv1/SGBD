@@ -26,8 +26,8 @@ public class MainWindowViewModel : ViewModelBase
     
     private Customer? _selectedCustomer;
     private Payment? _selectedPayment;
-    public ObservableCollection<Customer> Customers { get; } = new();
-    public ObservableCollection<Payment> Payments { get; } = new();
+    public ObservableCollection<Customer> Customers { get; set; } = new();
+    public ObservableCollection<Payment> Payments { get; set; } = new();
 
     public Customer? SelectedCustomer
     {
@@ -57,6 +57,26 @@ public class MainWindowViewModel : ViewModelBase
     public string NewType { get; set; } = "";
     public string NewBank { get; set; } = "";
 
+    public string FilterByType
+    {
+        get;
+        set
+        {
+            if(string.IsNullOrEmpty(value))
+                LoadPayments();
+            else
+                FilterByTypeCommand(value);
+        }
+    } = "";
+
+    private void FilterByTypeCommand(string type)
+    {
+        Payments.Clear();
+        foreach (var p in _paymentRepo!.FindAllByType(type, _selectedCustomer!.Id))
+        {
+            Payments.Add(p);
+        }
+    }
     private void LoadPayments()
     {
         if (SelectedCustomer == null) return;
@@ -99,10 +119,12 @@ public class MainWindowViewModel : ViewModelBase
         {
             decimal parsed = 0;
             decimal.TryParse(NewAmount, out parsed);
-            if (parsed == 0)
+            if (parsed == 0 || parsed < 0)
                 ErrorMessage = $"Invalid amount!";
             else if (string.IsNullOrEmpty(NewType))
                 ErrorMessage = $"Invalid type (empty)!";
+            else if (NewType != "cash" || NewType != "transfer" || NewType != "card")
+                ErrorMessage = $"Invalid type (should be one of cash, transfer, card)";
             else if (SelectedCustomer == null)
                 ErrorMessage = $"Customer not selected!";
             else
